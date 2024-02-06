@@ -1,10 +1,15 @@
 "use client";
 import "react-quill/dist/quill.bubble.css";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import { useState } from "react";
 import classes from "./create-new-blog.module.css";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 type file = null | File;
+if (typeof window !== "undefined") {
+}
+
 export default function Login() {
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState<file>(null);
@@ -13,9 +18,7 @@ export default function Login() {
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
 
-  function handleSubmit() {
-    console.log(value);
-  }
+  function handleSubmit() {}
   return (
     <>
       <div className={classes.container}>

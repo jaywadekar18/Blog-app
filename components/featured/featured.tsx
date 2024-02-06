@@ -6,7 +6,6 @@ import { useSession } from "next-auth/react";
 
 const Featured = () => {
   const { status, data, update } = useSession();
-  console.log(data?.user);
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>

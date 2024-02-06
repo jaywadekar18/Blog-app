@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Category } from "@/constants/consts";
 const getData = async () => {
-  const res = await fetch(`${process.env.URL}/api/categories`, {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/categories`, {
     cache: "no-store",
   });
 
@@ -17,7 +17,6 @@ const getData = async () => {
 
 const CategoryList = async () => {
   const data = await getData();
-  console.log(data);
   return (
     <div className={classes.container}>
       <h1 className={classes.title}>Popular Categories</h1>

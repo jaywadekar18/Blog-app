@@ -4,8 +4,6 @@ import classes from "./login.module.css";
 import { useRouter } from "next/navigation";
 export default function Login() {
   const { status, data, update } = useSession();
-
-  console.log(status, data, update);
   const router = useRouter();
 
   if (status === "loading") {

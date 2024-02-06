@@ -7,7 +7,6 @@ export const GET = async (req: Request) => {
   const pageNumber = page ? parseInt(page) : 1;
   const cat = searchParams.get("cat");
   const POSTS_IN_ONE_PAGE = 2;
-  console.log("page", page);
   try {
     const [posts, totalNoOfPosts] = await prisma.$transaction([
       prisma.post.findMany({
@@ -18,7 +17,6 @@ export const GET = async (req: Request) => {
       prisma.post.count({ where: { ...(cat && { catSlug: cat }) } }),
     ]);
     const maxNoOfPages = Math.ceil(totalNoOfPosts / POSTS_IN_ONE_PAGE);
-    console.log(posts);
     return new NextResponse(
       JSON.stringify({
         posts,
@@ -27,7 +25,6 @@ export const GET = async (req: Request) => {
       })
     );
   } catch (err) {
-    console.log(err);
     return new NextResponse(
       JSON.stringify({ message: "Something went wrong!", status: 500 })
     );

@@ -2,7 +2,7 @@ import CardList from "@/components/cardList/cardList";
 
 const getData = async (page: number, cat = "") => {
   const res = await fetch(
-    `${process.env.URL}/api/posts?page=${page || 1}&cat=${cat}`,
+    `${process.env.NEXTAUTH_URL}/api/posts?page=${page || 1}&cat=${cat}`,
     {
       cache: "no-store",
     }

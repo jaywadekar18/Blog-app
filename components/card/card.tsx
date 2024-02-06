@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import classes from "./card.module.css";
 import { Post } from "@/constants/consts";
-function Card({ item, key }: { item: Post; key: string }) {
+function Card({ item }: { item: Post }) {
   return (
-    <div key={key}>
+    <div>
       <div className={classes.container}>
         {item.img && (
           <div className={classes.imageContainer}>
