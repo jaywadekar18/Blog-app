@@ -66,3 +66,14 @@ body {
 .quill > .ql-container > .ql-editor.ql-blank::before {
   color: #b3b3b1;
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 90vh;
+}
+.activeNavlink {
+  border-bottom: 3px solid var(--textColor);
+}

@@ -1,6 +1,38 @@
 import prisma from "@/app/utils/connect";
 import { NextResponse } from "next/server";
 
+export const POST = async (req: Request) => {
+  try {
+    // const { slug, title, desc, img, catSlug, userEmail } = await req.json();
+    const body = await req.json();
+    const { slug, title, desc, img, catSlug, userEmail } = body;
+    console.log(body);
+    const c = await prisma.post.create({
+      data: {
+        slug,
+        title,
+        desc,
+        img,
+        catSlug,
+        userEmail,
+      },
+    });
+    console.log(c);
+    return new NextResponse(
+      JSON.stringify({
+        message: "Post Craeted successfully",
+        status: 200,
+      })
+    );
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({
+        message: err,
+        status: 500,
+      })
+    );
+  }
+};
 export const GET = async (req: Request) => {
   const { searchParams } = new URL(req.url);
   const page = searchParams.get("page");

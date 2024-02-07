@@ -9,7 +9,6 @@ function ThemeToggler() {
   }
   return (
     <div className={theme}>
-      {theme}
       <button onClick={handleThemeChange}>{theme}</button>
     </div>
   );

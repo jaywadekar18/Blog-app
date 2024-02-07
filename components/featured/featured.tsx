@@ -10,7 +10,9 @@ const Featured = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>
         <b>
-          {status === "authenticated" && <span>Hey {data?.user?.name} .</span>}
+          {status === "authenticated" && (
+            <p style={{ margin: 0 }}>Hey {data?.user?.name},</p>
+          )}
         </b>
         Discover, Create, Share: Your Ultimate Blogging Experience
       </h1>

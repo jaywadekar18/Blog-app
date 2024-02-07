@@ -2,4 +2,13 @@
   display: flex;
   gap: 1rem;
   list-style: none;
+  justify-content: flex-end;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+.logo {
+  font-size: 4rem;
 }

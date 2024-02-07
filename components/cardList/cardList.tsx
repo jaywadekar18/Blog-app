@@ -14,7 +14,7 @@ type Params = {
 function CardList({ posts, page, hasPrev, hasNext, cat }: Params) {
   return (
     <div className={classes.container}>
-      <h1 className={classes.title}>Recent Posts</h1>
+      <h1 className={classes.title}>Recent {cat ?? ""} blogs</h1>
       <div className={classes.posts}>
         {posts?.map((item: Post) => (
           <Card item={item} key={item.id} />
