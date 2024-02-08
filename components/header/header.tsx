@@ -6,15 +6,25 @@ import classes from "./header.module.css";
 import ThemeToggler from "../themeToggler/themeToggler";
 import AuthLinks from "../authLinks/authLinks";
 import { usePathname } from "next/navigation";
-import { Lobster } from "next/font/google";
-const lobster = Lobster({ weight: ["400"], subsets: ["vietnamese"] });
+// import { lobster } from "@/app/layout";
+import { Inter, Lobster_Two } from "next/font/google";
+const inter = Inter({ subsets: ["latin"] });
+
+export const lobster = Lobster_Two({
+  weight: ["400"],
+  subsets: ["latin"],
+});
 function Header() {
   const path = usePathname();
   return (
     <div className={classes.header}>
-      <span className={classes.logo} style={{ fontFamily: lobster.className }}>
+      <Link
+        href={ROUTES.HOME}
+        className={classes.logo}
+        style={{ fontFamily: lobster.className }}
+      >
         EchoBlog
-      </span>
+      </Link>
       <ul className={classes.navLinks}>
         <li>
           <ThemeToggler />

@@ -2,6 +2,7 @@
 import { signIn, useSession } from "next-auth/react";
 import classes from "./login.module.css";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 export default function Login() {
   const { status, data, update } = useSession();
   const router = useRouter();
@@ -21,7 +22,8 @@ export default function Login() {
             className={classes.socialButton}
             onClick={() => signIn("google")}
           >
-            Sign in with Google
+            <Image src="/google.png" alt="google logo" width={20} height={20} />
+            &nbsp;Sign in with Google
           </div>
         </div>
       </div>

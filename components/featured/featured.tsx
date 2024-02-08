@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./featured.module.css";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 const Featured = () => {
   const { status, data, update } = useSession();
@@ -22,15 +23,16 @@ const Featured = () => {
         </div>
         <div className={styles.textContainer}>
           <h1 className={styles.postTitle}>
-            Lorem ipsum dolor sit amet alim consectetur adipisicing elit.
+            Dive into a diverse array of topics, from travel and fashion to
+            culture and food!.
           </h1>
           <p className={styles.postDesc}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Cupiditate, quam nisi magni ea laborum inventore voluptatum
-            laudantium repellat ducimus unde aspernatur fuga. Quo, accusantium
-            quisquam! Harum unde sit culpa debitis.
+            Immerse yourself in a flood of insights and knowledge, where every
+            blog post offers a fresh perspective on the world around us.
           </p>
-          <button className={styles.button}>Read More</button>
+          <Link href="/blogs">
+            <button className={styles.button}>See Blogs</button>
+          </Link>
         </div>
       </div>
     </div>
