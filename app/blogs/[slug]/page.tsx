@@ -2,6 +2,7 @@
 import { Post } from "@/constants/consts";
 import classes from "./singlePost.module.css";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 // import Comments from "@/components/comments/Comments";
 
 const getData = async (slug: string) => {
@@ -20,7 +21,9 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
 
   const { data }: { data: Post } = await getData(slug);
-
+  if (!data) {
+    notFound();
+  }
   return (
     <div className={classes.container}>
       <div className={classes.infoContainer}>

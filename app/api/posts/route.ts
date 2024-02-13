@@ -1,9 +1,20 @@
-import prisma from "@/app/utils/connect";
+import { getAuthSession } from "@/utils/auth";
+import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {
   try {
     // const { slug, title, desc, img, catSlug, userEmail } = await req.json();
+    const session = await getAuthSession();
+    console.log("session", session);
+    if (!session) {
+      return new NextResponse(
+        JSON.stringify({
+          message: "User is not logged in!",
+          status: 401,
+        })
+      );
+    }
     const body = await req.json();
     const { slug, title, desc, img, catSlug, userEmail } = body;
     console.log(body);
@@ -38,7 +49,7 @@ export const GET = async (req: Request) => {
   const page = searchParams.get("page");
   const pageNumber = page ? parseInt(page) : 1;
   const cat = searchParams.get("cat");
-  const POSTS_IN_ONE_PAGE = 2;
+  const POSTS_IN_ONE_PAGE = 5;
   try {
     const [posts, totalNoOfPosts] = await prisma.$transaction([
       prisma.post.findMany({

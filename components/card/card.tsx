@@ -9,7 +9,13 @@ function Card({ item }: { item: Post }) {
       <div className={classes.container}>
         {item.img && (
           <div className={classes.imageContainer}>
-            <Image src={item.img} alt="" fill className={classes.image} />
+            <Image
+              src={item.img}
+              alt=""
+              fill
+              className={classes.image}
+              style={{ objectFit: "contain" }}
+            />
           </div>
         )}
         <div className={classes.textContainer}>

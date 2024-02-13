@@ -13,7 +13,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import { app } from "../utils/firebase";
+import { app } from "../../utils/firebase";
 import { relative } from "path";
 
 export default function CreateNewBlog() {
@@ -82,7 +82,7 @@ export default function CreateNewBlog() {
         title,
         catSlug,
         desc: description,
-        slug: title,
+        slug: title.trim().replaceAll(" ", "-"),
         img: image?.filePath ?? "/food.png",
         userEmail: data?.user?.email,
       };
@@ -152,9 +152,13 @@ export default function CreateNewBlog() {
             >
               <Image
                 fill
-                style={{ maxHeight: "500px", maxWidth: "100%" }}
+                style={{
+                  maxHeight: "500px",
+                  maxWidth: "100%",
+                  objectFit: "contain",
+                }}
                 src={URL.createObjectURL(file)}
-                alt="dvdsv"
+                alt="uploaded image"
               />
             </div>
           )}
