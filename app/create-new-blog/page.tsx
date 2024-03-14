@@ -23,7 +23,7 @@ export default function CreateNewBlog() {
   // const [media, setMedia] = useState("");
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
-  const [catSlug, setCatSlug] = useState("");
+  const [catSlug, setCatSlug] = useState("style");
   const { data } = useSession();
   const [isLoading, setLoading] = useState(false);
   const handleFileUpload = (): Promise<{

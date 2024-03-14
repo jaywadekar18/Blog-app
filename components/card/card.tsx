@@ -31,7 +31,9 @@ function Card({ item }: { item: Post }) {
           {/* <p className={classes.desc}>{item.desc.substring(0, 60)}</p> */}
           <div
             className={classes.desc}
-            dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) }}
+            dangerouslySetInnerHTML={{
+              __html: `${item?.desc.substring(0, 300)}...`,
+            }}
           />
           <Link href={`/blogs/${item.slug}`} className={classes.link}>
             Read More
