@@ -6,6 +6,7 @@
   --textColor: #ddd;
   --softBg: #1f273a;
   --softTextColor: #a6a6a6;
+  --shimmerColor: #1b2230;
 }
 a {
   color: inherit;
@@ -45,6 +46,7 @@ body {
   --textColor: #ddd;
   --softBg: #1f273a;
   --softTextColor: #a6a6a6;
+  --shimmerColor: #1b2230;
 }
 
 .light {
@@ -52,6 +54,7 @@ body {
   --textColor: black;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
+  --shimmerColor: #f3f3f3;
 }
 .container {
   padding: 2rem 4rem;
